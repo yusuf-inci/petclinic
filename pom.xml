@@ -402,7 +402,7 @@
             </plugin>
 
             <!-- Duplicate declaration of org.jacoco:jacoco-maven-plugin -->
-            <!--plugin>
+            <!-- plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin}</version>
