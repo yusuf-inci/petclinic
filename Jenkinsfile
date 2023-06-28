@@ -13,7 +13,7 @@ pipeline{
     stages{
         stage('Git Checkout') {
             steps{
-                git branch: 'main', url: 'https://github.com/yusuf-inci/30.Days.of.DevOps.git'
+                git branch: 'main', url: 'https://github.com/yusuf-inci/petclinic.git'
 
             }
         }
