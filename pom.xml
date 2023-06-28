@@ -402,7 +402,8 @@
                 </configuration>
             </plugin>
 
-            <plugin>
+            <!-- Duplicate declaration of org.jacoco:jacoco-maven-plugin -->
+            <!--plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin}</version>
@@ -420,7 +421,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
 
             <!--Specify the encoding for copying resources-->
             <plugin>
