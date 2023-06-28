@@ -24,11 +24,11 @@ pipeline{
             }
         }
 
-        //stage('Test Cases') {
-            //steps{
-                //sh "mvn test"
-            //}
-        //}
+        stage('Test Cases') {
+            steps{
+                sh "mvn test"
+            }
+        }
 
         stage('SonarQube Analysis') {
             steps{
@@ -41,17 +41,7 @@ pipeline{
             }
         }
 
-        // stage("Sonarqube Analysis "){
-            // steps{
-                // withSonarQubeEnv('sonar-server') {
-                    // sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-                    // -Dsonar.java.binaries=. \
-                    // -Dsonar.projectKey=Petclinic '''
-                // }
-            // }   
-        // }
         
-
         stage('Build') {
             steps {
                 sh "mvn clean package -DskipTests=true"
