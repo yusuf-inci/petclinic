@@ -30,21 +30,38 @@ pipeline{
             //}
         //}
 
-        stage('SonarQube Analysis') {
+        // stage('SonarQube Analysis') {
+            // steps{
+                // withSonarQubeEnv('sonar-server') {
+                    // sh ''' 
+                    // $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=petclinic \
+                    // -Dsonar.java.binaries=. \
+                    // -Dsonar.projectKey=petclinic '''
+                // }
+            // }
+        // }
+
+        stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' 
-                    $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=petclinic \
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=petclinic '''
+                    -Dsonar.projectKey=Petclinic '''
                 }
-            }
+            }   
         }
+        
 
         stage('Build') {
             steps {
                 sh "mvn clean package -DskipTests=true"
             }
         }
+
+        // stage('Deploy') {
+            // steps {
+                // sh "sudo cp target/*.war /opt/apache-tomcat-9.0.65/webapps"
+            // }
+        // }
     }
 }
