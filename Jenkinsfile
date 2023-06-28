@@ -24,9 +24,15 @@ pipeline{
             }
         }
 
+        //stage('Test Cases') {
+            //steps{
+                //sh "mvn test"
+            //}
+        //}
+
         stage('SonarQube Analysis') {
             steps{
-                withSonarQubeEnv(sonar-server) {
+                withSonarQubeEnv('sonar-server') {
                     sh ''' 
                     $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=petclinic \
                     -Dsonar.java.binaries=. \
