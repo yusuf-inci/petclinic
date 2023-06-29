@@ -68,7 +68,16 @@ pipeline{
                 // ])
             // }
         // }
-
+        
+        
+        stage('Maven deploy to nexus') {
+            steps {
+                configFileProvider([configFile(fileId: '838b3181-ea82-46c0-89e6-5ffc6d28eaef', variable: 'mavensettings')]) {
+                    sh "mvn -s $mavensettings clean deploy -DskipTests=true"
+                }
+            }
+        }
+        
         // stage('Deploy') {
             // steps {
                 // sh "sudo cp target/*.war /opt/apache-tomcat-9.0.65/webapps"
